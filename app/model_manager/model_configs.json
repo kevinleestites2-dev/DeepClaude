@@ -29,7 +29,7 @@
         },
         "OpenRouter/DeepSeek-R1": {
             "model_id": "deepseek/deepseek-r1-0528",
-            "api_key": "OPENROUTER_KEY_HERE",
+            "api_key": "${OPENROUTER_API_KEY}",
             "api_base_url": "https://openrouter.ai/api",
             "api_request_address": "v1/chat/completions",
             "is_origin_reasoning": false,
@@ -49,7 +49,7 @@
         },
         "OpenRouter/Claude-Fable-5": {
             "model_id": "anthropic/claude-fable-5",
-            "api_key": "OPENROUTER_KEY_HERE",
+            "api_key": "${OPENROUTER_API_KEY}",
             "api_base_url": "https://openrouter.ai/api",
             "api_request_address": "v1/chat/completions",
             "model_format": "openai",
@@ -76,7 +76,7 @@
         },
         "OpenRouter/Claude-3-7-Sonnet": {
             "model_id": "anthropic/claude-3.7-sonnet",
-            "api_key": "***********",
+            "api_key": "${OPENROUTER_API_KEY}",
             "api_base_url": "https://openrouter.ai/api",
             "api_request_address": "v1/chat/completions",
             "model_format": "openai",
@@ -107,7 +107,9 @@
         "proxy_address": "127.0.0.1:7890"
     },
     "system": {
-        "allow_origins": ["*"],
+        "allow_origins": [
+            "*"
+        ],
         "log_level": "INFO",
         "api_key": "pantheon_prime",
         "save_deepseek_tokens": false,

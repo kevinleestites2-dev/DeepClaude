@@ -51,7 +51,8 @@ class ClaudeClient(BaseClient):
         """
         if self.provider == "openrouter":
             # 转换模型名称为 OpenRouter 格式
-            model = "anthropic/claude-3.5-sonnet"
+            # model passed through from caller — supports fable-5 and any OR model
+            model = model if "/" in model else f"anthropic/{model}"
 
             headers = {
                 "Authorization": f"Bearer {self.api_key}",
@@ -181,3 +182,4 @@ class ClaudeClient(BaseClient):
                         raise ValueError(f"不支持的Claude Provider: {self.provider}")
                 except json.JSONDecodeError:
                     continue
+

@@ -1,32 +1,5 @@
 {
     "reasoner_models": {
-        "DeepSeek/DeepSeek-Reasoner": {
-            "model_id": "deepseek-reasoner",
-            "api_key": "*************",
-            "api_base_url": "https://api.deepseek.com",
-            "api_request_address": "v1/chat/completions",
-            "is_origin_reasoning": true,
-            "is_valid": false,
-            "proxy_open": false
-        },
-        "PPIO/DeepSeek-R1-0528": {
-            "model_id": "deepseek/deepseek-r1-0528",
-            "api_key": "*************",
-            "api_base_url": "https://api.ppinfra.com/v3/openai",
-            "api_request_address": "chat/completions",
-            "is_origin_reasoning": false,
-            "is_valid": false,
-            "proxy_open": false
-        },
-        "Volcengine/DeepSeek-R1": {
-            "model_id": "deepseek-r1-250120",
-            "api_key": "**************",
-            "api_base_url": "https://ark.cn-beijing.volces.com/api",
-            "api_request_address": "v3/chat/completions",
-            "is_origin_reasoning": true,
-            "is_valid": true,
-            "proxy_open": false
-        },
         "OpenRouter/DeepSeek-R1": {
             "model_id": "deepseek/deepseek-r1-0528",
             "api_key": "${OPENROUTER_API_KEY}",
@@ -38,66 +11,27 @@
         }
     },
     "target_models": {
-        "Anthropic/Claude-Fable-5": {
-            "model_id": "claude-fable-5",
-            "api_key": "ANTHROPIC_KEY_HERE",
-            "api_base_url": "https://api.anthropic.com",
-            "api_request_address": "v1/messages",
-            "model_format": "anthropic",
-            "is_valid": true,
-            "proxy_open": false
-        },
         "OpenRouter/Claude-Fable-5": {
             "model_id": "anthropic/claude-fable-5",
             "api_key": "${OPENROUTER_API_KEY}",
             "api_base_url": "https://openrouter.ai/api",
             "api_request_address": "v1/chat/completions",
-            "model_format": "openai",
-            "is_valid": true,
-            "proxy_open": false
-        },
-        "Anthropic/Claude-3-7-Sonnet": {
-            "model_id": "claude-3-7-sonnet-20250219",
-            "api_key": "**************",
-            "api_base_url": "https://api.anthropic.com",
-            "api_request_address": "v1/messages",
-            "model_format": "anthropic",
-            "is_valid": false,
-            "proxy_open": true
-        },
-        "DMXapi/Claude-3-7-Sonnet": {
-            "model_id": "claude-3-7-sonnet-20250219",
-            "api_key": "**************",
-            "api_base_url": "https://www.dmxapi.cn",
-            "api_request_address": "v1/chat/completions",
-            "model_format": "openai",
-            "is_valid": true,
-            "proxy_open": false
-        },
-        "OpenRouter/Claude-3-7-Sonnet": {
-            "model_id": "anthropic/claude-3.7-sonnet",
-            "api_key": "${OPENROUTER_API_KEY}",
-            "api_base_url": "https://openrouter.ai/api",
-            "api_request_address": "v1/chat/completions",
-            "model_format": "openai",
             "is_valid": true,
             "proxy_open": false
         },
         "Gemini/Gemini-2.5-Flash": {
-            "model_id": "gemini-2.5-flash-preview-04-17",
-            "api_key": "AIzaSyAQsAPssodgLpinMSx-TFtpfpYpn7byfxs",
-            "api_base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
-            "api_request_address": "chat/completions",
-            "model_format": "openai",
+            "model_id": "google/gemini-2.5-flash",
+            "api_key": "${OPENROUTER_API_KEY}",
+            "api_base_url": "https://openrouter.ai/api",
+            "api_request_address": "v1/chat/completions",
             "is_valid": true,
             "proxy_open": false
         },
         "Gemini/Gemini-2.5-Pro": {
-            "model_id": "gemini-2.5-pro-preview-05-06",
-            "api_key": "AIzaSyAQsAPssodgLpinMSx-TFtpfpYpn7byfxs",
-            "api_base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
-            "api_request_address": "chat/completions",
-            "model_format": "openai",
+            "model_id": "google/gemini-2.5-pro",
+            "api_key": "${OPENROUTER_API_KEY}",
+            "api_base_url": "https://openrouter.ai/api",
+            "api_request_address": "v1/chat/completions",
             "is_valid": true,
             "proxy_open": false
         }
@@ -107,9 +41,7 @@
         "proxy_address": "127.0.0.1:7890"
     },
     "system": {
-        "allow_origins": [
-            "*"
-        ],
+        "allow_origins": ["*"],
         "log_level": "INFO",
         "api_key": "pantheon_prime",
         "save_deepseek_tokens": false,
@@ -122,26 +54,14 @@
             "target_models": "OpenRouter/Claude-Fable-5",
             "is_valid": true
         },
-        "deepfable-direct": {
-            "model_id": "deepfable-direct",
-            "reasoner_models": "OpenRouter/DeepSeek-R1",
-            "target_models": "Anthropic/Claude-Fable-5",
-            "is_valid": false
-        },
-        "deepclaude": {
-            "model_id": "deepclaude",
-            "reasoner_models": "PPIO/DeepSeek-R1-0528",
-            "target_models": "DMXapi/Claude-3-7-Sonnet",
-            "is_valid": true
-        },
-        "deepgeminiflash": {
-            "model_id": "deepgeminiflash",
+        "deepfable-flash": {
+            "model_id": "deepfable-flash",
             "reasoner_models": "OpenRouter/DeepSeek-R1",
             "target_models": "Gemini/Gemini-2.5-Flash",
             "is_valid": true
         },
-        "deepgeminipro": {
-            "model_id": "deepgeminipro",
+        "deepfable-pro": {
+            "model_id": "deepfable-pro",
             "reasoner_models": "OpenRouter/DeepSeek-R1",
             "target_models": "Gemini/Gemini-2.5-Pro",
             "is_valid": true

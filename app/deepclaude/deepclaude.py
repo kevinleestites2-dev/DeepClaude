@@ -56,7 +56,7 @@ class DeepClaude:
         messages: list,
         model_arg: tuple[float, float, float, float],
         deepseek_model: str = "deepseek-reasoner",
-        claude_model: str = "claude-3-5-sonnet-20241022",
+        claude_model: str = "anthropic/claude-fable-5",
     ) -> AsyncGenerator[bytes, None]:
         """处理完整的流式输出过程
 
@@ -311,7 +311,7 @@ Based on this reasoning, combined with your knowledge, when the current reasonin
         messages: list,
         model_arg: tuple[float, float, float, float],
         deepseek_model: str = "deepseek-reasoner",
-        claude_model: str = "claude-3-5-sonnet-20241022",
+        claude_model: str = "anthropic/claude-fable-5",
     ) -> dict:
         """处理非流式输出过程
 
@@ -429,3 +429,4 @@ Based on this reasoning, combined with your knowledge, when the current reasonin
             logger.error(f"获取 Claude 响应时发生错误: {e}")
             # 直接抛出异常，不再继续处理
             raise e
+
